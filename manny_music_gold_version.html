@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manny Music – Award Winning DJ & Host</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #2a0a1f;
+      --navy-mid: #3d1030;
+      --gold: #c9963a;
+      --gold-lt: #e8b95a;
+      --gold-shine: #f5d080;
+      --white: #ffffff;
+      --shadow-sm: 0 4px 20px rgba(42, 10, 31, 0.18);
+      --shadow-md: 0 10px 40px rgba(42, 10, 31, 0.26);
+      --shadow-lg: 0 20px 60px rgba(42, 10, 31, 0.36);
+      --radius: 20px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #1a0612;
+      overflow-x: hidden;
+      background: #1e0818;
+    }
+
+    /* ─── STICKY HEADER ─────────────────────────────── */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 62px;
+      background: rgba(22, 4, 16, 0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 150, 58, 0.25);
+      box-shadow: 0 2px 28px rgba(42, 10, 31, 0.60);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .h-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+
+    .h-logo .g {
+      color: var(--gold);
+    }
+
+    .h-logo em {
+      font-family: 'Lato', sans-serif;
+      font-style: italic;
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.18em;
+      margin-left: 6px;
+      align-self: flex-end;
+      padding-bottom: 2px;
+    }
+
+    nav.hnav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav.hnav a {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color .2s;
+    }
+
+    nav.hnav a:hover {
+      color: var(--gold);
+    }
+
+    .h-book {
+      background: var(--gold);
+      color: #1a0612 !important;
+      padding: 7px 20px;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      letter-spacing: 0.10em !important;
+      transition: background .2s, transform .15s !important;
+    }
+
+    .h-book:hover {
+      background: var(--gold-lt) !important;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    @media(max-width:860px) {
+      nav.hnav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.hnav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        position: fixed;
+        top: 62px;
+        left: 0;
+        right: 0;
+        background: rgba(22, 4, 16, 0.98);
+        padding: 24px 40px 32px;
+        border-bottom: 1px solid rgba(201, 150, 58, 0.20);
+      }
+    }
+
+    /* ─── SECTION SYSTEM ─────────────────────────────── */
+    /* Alternating deep plum/burgundy tones — rich & premium */
+    .s1 {
+      background: #2d0d22;
+    }
+
+    .s2 {
+      background: #250818;
+    }
+
+    .s3 {
+      background: #32102a;
+    }
+
+    .s4 {
+      background: #220716;
+    }
+
+    .s5 {
+      background: #2e0d24;
+    }
+
+    .s6 {
+      background: #1e0614;
+    }
+
+    .s7 {
+      background: #300e26;
+    }
+
+    .s8 {
+      background: #260919;
+    }
+
+    .s9 {
+      background: #341228;
+    }
+
+    .s10 {
+      background: #210715;
+    }
+
+    .s11 {
+      background: #2c0c21;
+    }
+
+    .s12 {
+      background: #1d0513;
+    }
+
+    .s-dark {
+      background: #160310;
+    }
+
+    .page-sec {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 64px;
+    }
+
+    /* Single watermark per section – bottom centered, large ghost text */
+    .wm {
+      position: absolute;
+      /* bottom: -10px; */
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: clamp(7.5rem, 13vw, 10.5rem);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      color: rgba(201, 150, 58, 0.06);
+    }
+
+    .s-dark .wm {
+      color: rgba(201, 150, 58, 0.05);
+    }
+
+    .inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ─── SECTION TITLES ─────────────────────────────── */
+    .sec-ttl {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 32px;
+      line-height: 1.15;
+    }
+
+    .sec-ttl .lt {
+      font-weight: 400;
+      color: rgba(201, 150, 58, 0.75);
+    }
+
+    .sec-ttl.inv {
+      color: var(--white);
+    }
+
+    .sec-ttl.inv .lt {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .sec-ttl::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-shine));
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      background: linear-gradient(175deg, #2a0a1f 0%, #120308 100%);
+      padding-top: 62px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 25%, rgba(201, 150, 58, 0.12) 0%, transparent 65%);
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-img .ip {
+      width: 100%;
+      height: 100%;
+      opacity: .65;
+    }
+
+    .hero-grad {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 65%;
+      background: linear-gradient(to top, rgba(18, 3, 8, .95) 0%, transparent 100%);
+    }
+
+    .hero-cnt {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding-bottom: 68px;
+    }
+
+    .hero-brand {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 11vw, 6rem);
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-transform: lowercase;
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(201, 150, 58, 0.35);
+    }
+
+    .hero-brand sub {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.26em;
+      margin-top: 2px;
+    }
+
+    .hero-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-top: 14px;
+    }
+
+    .hero-sub {
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .45);
+      letter-spacing: .44em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* ─── IMAGE HELPERS ─────────────────────────────── */
+    .ip {
+      background: linear-gradient(135deg, #3d1030 0%, #1e0616 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(201, 150, 58, .30);
+      font-size: .7rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 14px;
+      font-family: 'Lato', sans-serif;
+      min-height: 220px;
+    }
+
+    .ip.h160 {
+      min-height: 160px;
+    }
+
+    .ip.h180 {
+      min-height: 180px;
+    }
+
+    .ip.h200 {
+      min-height: 200px;
+    }
+
+    .ip.h260 {
+      min-height: 260px;
+    }
+
+    .ip.h300 {
+      min-height: 300px;
+    }
+
+    .ip.h400 {
+      min-height: 400px;
+    }
+
+    .ip.fill {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+    }
+
+    .ic {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────── */
+    .about-body {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-body p {
+      font-size: 1.03rem;
+      line-height: 1.88;
+      color: rgba(255, 255, 255, 0.80);
+      margin-bottom: 18px;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── STACK ──────────────────────────────────────── */
+    .vstack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* ─── LEAD TEXT ──────────────────────────────────── */
+    .lead {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 32px;
+    }
+
+    .lead p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 12px;
+    }
+
+    /* ─── PKG GRID ───────────────────────────────────── */
+    .pkg2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .pkg-c {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      border-top: 3px solid var(--gold);
+      border: 1px solid rgba(201, 150, 58, 0.20);
+      border-top: 3px solid var(--gold);
+    }
+
+    .pkg-c-ttl {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .pkg-c ul {
+      list-style: none;
+    }
+
+    .pkg-c ul li {
+      font-size: .89rem;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.75;
+      padding: 2px 0 2px 17px;
+      position: relative;
+    }
+
+    .pkg-c ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ─── BUNDLE CARDS ───────────────────────────────── */
+    .bundles {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .bund {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(201, 150, 58, 0.18);
+      border-left: 4px solid var(--gold);
+    }
+
+    .bund-ttl {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .bund ul {
+      list-style: none;
+      columns: 2;
+      column-gap: 22px;
+    }
+
+    .bund ul li {
+      font-size: .89rem;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.75;
+      break-inside: avoid;
+      padding-left: 17px;
+      position: relative;
+    }
+
+    .bund ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ─── DANCEFLOOR ─────────────────────────────────── */
+    .df-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .df-c {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .df-bar {
+      background: linear-gradient(90deg, #1e0614 0%, #2d0d22 100%);
+      padding: 10px 16px;
+      border-top: 1px solid rgba(201, 150, 58, 0.25);
+    }
+
+    .df-bar .dsub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .66rem;
+      font-weight: 600;
+      color: rgba(201, 150, 58, .6);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .df-bar .dmain {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .df-desc {
+      background: rgba(42, 10, 31, 0.85);
+      padding: 13px 16px;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.65;
+      border-top: 1px solid rgba(201, 150, 58, 0.12);
+    }
+
+    /* ─── ENHANCEMENTS ───────────────────────────────── */
+    .enh-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .enh-c {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      min-height: 130px;
+    }
+
+    .enh-c:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .enh-lbl {
+      flex: 0 0 52%;
+      background: linear-gradient(135deg, #1e0614 0%, #3d1030 100%);
+      display: flex;
+      align-items: center;
+      padding: 24px 28px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .enh-c:nth-child(even) .enh-lbl {
+      border-left: none;
+      border-right: 3px solid var(--gold);
+    }
+
+    .enh-lbl h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      line-height: 1.2;
+    }
+
+    .enh-img {
+      flex: 1;
+    }
+
+    .enh-img .ip {
+      height: 100%;
+      min-height: 130px;
+    }
+
+    /* ─── PHOTO GRIDS ────────────────────────────────── */
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .g3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .sub-ttl {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 16px;
+    }
+
+    /* ─── FAQ ────────────────────────────────────────── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-it {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(201, 150, 58, 0.15);
+    }
+
+    .faq-q {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .02em;
+      margin-bottom: 9px;
+      text-align: center;
+    }
+
+    .faq-a {
+      font-size: .89rem;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.78;
+      text-align: center;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────────── */
+    .testi-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testi-c {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      min-height: 170px;
+    }
+
+    .testi-c.rev {
+      flex-direction: row-reverse;
+    }
+
+    .testi-txt {
+      flex: 0 0 60%;
+      background: linear-gradient(135deg, #1e0614 0%, #3a0e2c 100%);
+      padding: 28px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 3px solid var(--gold);
+    }
+
+    .testi-c.rev .testi-txt {
+      border-left: none;
+      border-right: 3px solid var(--gold);
+    }
+
+    .testi-q {
+      font-size: .91rem;
+      color: rgba(255, 255, 255, .85);
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .testi-n {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .testi-im {
+      flex: 1;
+    }
+
+    .testi-im .ip {
+      height: 100%;
+      min-height: 170px;
+    }
+
+    /* ─── CONTACT ────────────────────────────────────── */
+    .contact-bar {
+      background: linear-gradient(135deg, #3d1030 0%, #1e0614 100%);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(201, 150, 58, 0.20);
+    }
+
+    .c-brand .bn {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 900;
+      font-size: 2.6rem;
+      color: var(--gold);
+      letter-spacing: .04em;
+      text-transform: lowercase;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(201, 150, 58, 0.30);
+    }
+
+    .c-brand .bn sub {
+      display: block;
+      font-style: italic;
+      font-family: 'Lato', sans-serif;
+      font-size: .85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .22em;
+    }
+
+    .c-img {
+      flex: 1;
+      min-height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .c-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      text-align: center;
+      margin-bottom: 3px;
+    }
+
+    .c-sub {
+      font-size: .76rem;
+      color: rgba(255, 255, 255, .35);
+      letter-spacing: .44em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .c-card {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(201, 150, 58, 0.18);
+      border-radius: var(--radius);
+      padding: 32px;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .c-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .c-row .ico {
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    .c-row a,
+    .c-row span {
+      font-size: .96rem;
+      color: rgba(255, 255, 255, .82);
+      text-decoration: none;
+    }
+
+    .c-row a:hover {
+      color: var(--gold);
+    }
+
+    .qr-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .qr-b {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(201, 150, 58, 0.15);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qr-ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(201, 150, 58, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .qr-sq {
+      width: 90px;
+      height: 90px;
+      background: rgba(201, 150, 58, 0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(201, 150, 58, 0.35);
+      font-size: .63rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    .site-footer {
+      background: #0a0106;
+      padding: 18px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(201, 150, 58, .15);
+    }
+
+    .site-footer p {
+      font-size: .74rem;
+      color: rgba(255, 255, 255, .25);
+      letter-spacing: .09em;
+    }
+
+    /* ─── SCROLL TO TOP ─────────────────────────────── */
+    .scroll-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid rgba(201, 150, 58, 0.45);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .25s, transform .25s, border-color .2s, background .2s, color .2s;
+      box-shadow: 0 2px 16px rgba(42, 10, 31, 0.30);
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .scroll-top:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #1a0612;
+      box-shadow: 0 4px 24px rgba(201, 150, 58, 0.35);
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media(max-width:680px) {
+
+      .pkg2,
+      .g2 {
+        grid-template-columns: 1fr;
+      }
+
+      .bund ul {
+        columns: 1;
+      }
+
+      .df-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .g3 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .enh-c,
+      .enh-c:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .enh-lbl {
+        flex: none;
+      }
+
+      .testi-c,
+      .testi-c.rev {
+        flex-direction: column;
+      }
+
+      .testi-txt {
+        flex: none;
+      }
+
+      .contact-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .site-header {
+        padding: 0 20px;
+      }
+
+      .inner {
+        padding: 0 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════ STICKY HEADER ══════ -->
+  <header class="site-header">
+    <div class="h-logo"><span class="g">manny</span>&nbsp;music<em>Award Winning DJ &amp; Host</em></div>
+    <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="hnav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#dancefloor">Dancefloor</a>
+      <a href="#enhancements">Extras</a>
+      <a href="#faq">FAQ</a>
+      <a href="#experiences">Reviews</a>
+      <a href="#contact" class="h-book">Book Now</a>
+    </nav>
+  </header>
+
+  <!-- ══════ HERO ══════ -->
+  <div class="hero">
+    <div class="hero-img">
+      <div class="ip fill h400">[Hero – couple photo]</div>
+    </div>
+    <div class="hero-grad"></div>
+    <div class="hero-cnt">
+      <div class="hero-brand">manny<sub>music</sub></div>
+      <p class="hero-tagline">Award Winning DJ &amp; Host</p>
+      <p class="hero-sub">For Your Wedding</p>
+    </div>
+  </div>
+
+  <!-- ══════ ABOUT ══════ -->
+  <section id="about" class="page-sec s1">
+    <div class="wm">MANNY</div>
+    <div class="inner">
+      <h2 class="sec-ttl">ABOUT <span class="lt">MANNY</span></h2>
+      <div class="about-body">
+        <p>With a career spanning six dynamic years in the vibrant music scene, Manny has soared to arena acclaim,
+          leaving his mark on stages alongside renowned industry artists such as Anirudh, Yuvan, DSP, Hip-Hop Tamizha,
+          Hariharan, Sid Sriram &amp; many more.</p>
+        <p>From the pulsating beats of London to the enchanting melodies of bespoke South Asian weddings worldwide,
+          Manny's services have captivated audiences globally.</p>
+        <p>Renowned for his charismatic hosting and electrifying DJ sets, Manny is the epitome of entertainment
+          excellence, ensuring every event he graces is an unforgettable experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ WEDDING SERVICES ══════ -->
+  <section id="services" class="page-sec s2">
+    <div class="wm">WEDDING</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>WEDDING</strong> <span class="lt">SERVICES</span></h2>
+      <div class="lead">
+        <p>From carefully crafted playlists to flawless setups, we guarantee that every moment of your celebration is
+          imbued with excitement and joy.</p>
+        <p>Our seasoned team attends to all your requirements, providing bespoke attention to every detail to create
+          your dream wedding setup.</p>
+      </div>
+      <div class="vstack">
+        <div class="ic">
+          <div class="ip h260">[Wedding setup – LED screen stage photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h220">[Custom monogram dance floor photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h260">[M&amp;B wedding stage lighting photo]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ PORTFOLIO ══════ -->
+  <section id="portfolio" class="page-sec s3">
+    <div class="wm">PORTFOLIO</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>PORT</strong><span class="lt">FOLIO</span></h2>
+      <div class="lead">
+        <p>Discover our portfolio showcasing the splendour of South Asian Tamil weddings, where the fusion of tradition
+          and contemporary elegance sets the stage for unforgettable celebrations.</p>
+        <p>From vibrant Hindu matrimonial rituals to grand wedding receptions, our curated collection captures the
+          essence of each important moment in exquisite detail.</p>
+      </div>
+      <div class="ic">
+        <div class="ip h400">[Wedding cake &amp; floral decor portfolio photo]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ WEDDING & RECEPTION INTRO ══════ -->
+  <section id="packages" class="page-sec s4">
+    <div class="wm">WEDDING</div>
+    <div class="inner">
+      <div class="ic" style="margin-bottom:32px;">
+        <div class="ip h300">[Hindu wedding ceremony – couple on mandap photo]</div>
+      </div>
+      <h2 class="sec-ttl"><strong>WEDDING &amp; RECEPTION</strong><br><span class="lt">PACKAGES</span></h2>
+      <div class="ic" style="margin-top:28px;">
+        <div class="ip h300">[First dance – confetti &amp; lighting photo]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ HINDU WEDDING PACKAGES ══════ -->
+  <section class="page-sec s5">
+    <div class="wm">WEDDING</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>HINDU WEDDING</strong> <span class="lt">PACKAGES</span></h2>
+      <div class="pkg2">
+        <div class="pkg-c">
+          <p class="pkg-c-ttl">Musical Matrimony Collection</p>
+          <ul>
+            <li>DJ &amp; Host</li>
+            <li>Acoustic Sound System</li>
+            <li>Digital Multi-Channel Mixer</li>
+            <li>White LED DJ Booth</li>
+            <li>Wireless Microphones for Priest</li>
+            <li>Instrument Microphones for Traditional Instrumental Players</li>
+            <li>Microphone Stands</li>
+          </ul>
+        </div>
+        <div class="pkg-c">
+          <p class="pkg-c-ttl">Harmonious Hindu Wedding Collection</p>
+          <ul>
+            <li>DJ &amp; Host</li>
+            <li>White pleated backdrop curtains</li>
+            <li>Printed Gloss White DJ Booth</li>
+            <li>Complete sound production around the venue</li>
+            <li>Dedicated sound engineer overseeing the audio requirements of instrumental players</li>
+            <li>4K Ultra-HD Visual Screen for videoplay or live streaming of the wedding ceremony</li>
+            <li>Walking on the cloud effect (Dry Ice Machine)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="ic">
+          <div class="ip">[Hindu bride close-up photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip">[Mandap setup photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip">[Wedding dance floor guests photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip">[DJ performing at booth photo]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ RECEPTION PACKAGES ══════ -->
+  <section class="page-sec s6">
+    <div class="wm">RECEPTION</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>RECEPTION</strong> <span class="lt">PACKAGES</span></h2>
+      <div class="bundles">
+
+        <div class="bund">
+          <p class="bund-ttl">The Essential Bundle</p>
+          <ul>
+            <li>DJ &amp; Host</li>
+            <li>LED Starcloth Backdrop</li>
+            <li>Digital Surround Sound System</li>
+            <li>Digital Multi-Channel Mixer</li>
+            <li>Chesterfield DJ Booth</li>
+            <li>Wireless Microphones / Wired Microphones</li>
+            <li>Automated LED Moving Head Lighting</li>
+            <li>Mist FX (Haze Machine)</li>
+          </ul>
+        </div>
+
+        <div class="bund">
+          <p class="bund-ttl">The Synergy Bundle</p>
+          <ul>
+            <li>DJ &amp; Host</li>
+            <li>Digital Surround Sound System</li>
+            <li>Digital Multi Channel Mixer</li>
+            <li>4K Linear Screen DJ Booth</li>
+            <li>4K Ultra-HD Visual Screen measuring 6M by 2M</li>
+            <li>Wireless Microphones / Wired Microphones</li>
+            <li>DMX-controlled LED moving head lighting circling the DJ Booth only</li>
+            <li>DMX Controlled LED moving head wash lighting around the screen</li>
+            <li>Mist FX (Haze Machine)</li>
+            <li>Magical First Dance Effect (Dry Ice Machine)</li>
+          </ul>
+        </div>
+
+        <div class="bund">
+          <p class="bund-ttl">The Tailor-Made Bundle</p>
+          <ul>
+            <li>DJ &amp; Host</li>
+            <li>Digital Surround Sound System</li>
+            <li>Digital Multi Channel Mixer</li>
+            <li>4K Curved Screen DJ Booth</li>
+            <li>4K Ultra-HD Visual Screen with unique setup styles</li>
+            <li>4K Ultra-HD pair of Portrait Screens with height aligned to the Visual Screen</li>
+            <li>Personalised visual elements for the screens featuring your initials</li>
+            <li>Wireless Microphones / Wired Microphones</li>
+            <li>Bespoke production lighting around the venue</li>
+            <li>Tailored atmospheric room lighting</li>
+            <li>Mist FX (Haze Machine)</li>
+            <li>Enchanted First Dance Effect (Dry Ice Machine &amp; Indoor Sparklers Fountain Machine)</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ DANCEFLOOR ══════ -->
+  <section id="dancefloor" class="page-sec s7">
+    <div class="wm">DANCEFLOOR</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>DANCEFLOOR</strong> <span class="lt">PACKAGES</span></h2>
+      <div class="df-grid">
+
+        <div class="df-c">
+          <div class="ip h200">[Classical Illuminated White Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Classical</div>
+            <div class="dmain">Illuminated White Dancefloor</div>
+          </div>
+        </div>
+
+        <div class="df-c">
+          <div class="ip h200">[Classical Mirrored 3D Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Classical</div>
+            <div class="dmain">Mirrored 3D Dancefloor</div>
+          </div>
+        </div>
+
+        <div class="df-c">
+          <div class="ip h200">[Signature Bespoke White Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Signature</div>
+            <div class="dmain">Bespoke White Dancefloor</div>
+          </div>
+        </div>
+
+        <div class="df-c">
+          <div class="ip h200">[Signature Vinyl Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Signature</div>
+            <div class="dmain">Vinyl Dancefloor</div>
+          </div>
+          <div class="df-desc">
+            This dancefloor is available in various shapes and selection of mirror finishes including silver, rose gold,
+            and chrome.<br><br>
+            Currently this dancefloor is the most desired choice among our wedding couples.
+          </div>
+        </div>
+
+        <div class="df-c">
+          <div class="ip h220">[Signature Artistic Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Signature</div>
+            <div class="dmain">Artistic Dancefloor</div>
+          </div>
+          <div class="df-desc">
+            Contrasting with our signature vinyl floor, this dancefloor features a full bespoke vinyl from top to
+            bottom. Designed and printed in-house by our creative graphics design team and can be tailor-made in any
+            shape or size.
+          </div>
+        </div>
+
+        <div class="df-c">
+          <div class="ip h220">[Signature Royal Noir Dancefloor photo]</div>
+          <div class="df-bar">
+            <div class="dsub">Signature</div>
+            <div class="dmain">Royal Noir Dancefloor</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ OPTIONAL ENHANCEMENTS ══════ -->
+  <section id="enhancements" class="page-sec s8">
+    <div class="wm">OPTIONAL</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>OPTIONAL</strong> <span class="lt">ENHANCEMENTS</span></h2>
+      <div class="enh-list">
+        <div class="enh-c">
+          <div class="enh-lbl">
+            <h3>Magic Mirror<br>Photo Booth</h3>
+          </div>
+          <div class="enh-img">
+            <div class="ip fill">[Magic Mirror Photo Booth photo]</div>
+          </div>
+        </div>
+        <div class="enh-c">
+          <div class="enh-lbl">
+            <h3>360 Video<br>Booth</h3>
+          </div>
+          <div class="enh-img">
+            <div class="ip fill">[360 Video Booth photo]</div>
+          </div>
+        </div>
+        <div class="enh-c">
+          <div class="enh-lbl">
+            <h3>CO2<br>Cannons</h3>
+          </div>
+          <div class="enh-img">
+            <div class="ip fill">[CO2 Cannons photo]</div>
+          </div>
+        </div>
+        <div class="enh-c">
+          <div class="enh-lbl">
+            <h3>Printed Bars<br>&amp; Stages</h3>
+          </div>
+          <div class="enh-img">
+            <div class="ip fill">[Printed Bars &amp; Stages photo]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ ADDITIONAL SERVICES ══════ -->
+  <section class="page-sec s9">
+    <div class="wm">ADDITIONAL</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>ADDITIONAL</strong> <span class="lt">SERVICES</span></h2>
+      <p class="sub-ttl">Wedding Car Rentals</p>
+      <div class="g3">
+        <div class="ic">
+          <div class="ip h160">[Lamborghini wedding car photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Mercedes G-Wagon photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Vintage wedding car photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Groom on car photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Audi R8 blue photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Rolls Royce Cullinan photo]</div>
+        </div>
+      </div>
+      <p class="sub-ttl">Instrumentalists</p>
+      <div class="g3">
+        <div class="ic">
+          <div class="ip h160">[Tabla player photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Couple confetti dance photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Violin close-up photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Nadaswaram player photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Dhol group performers photo]</div>
+        </div>
+        <div class="ic">
+          <div class="ip h160">[Pianist at wedding photo]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FAQ ══════ -->
+  <section id="faq" class="page-sec s10">
+    <div class="wm">QUESTIONS</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>FREQUENTLY</strong> <span class="lt">ASKED QUESTIONS</span></h2>
+      <div class="faq-list">
+
+        <div class="faq-it">
+          <p class="faq-q">What services do we provide for weddings?</p>
+          <p class="faq-a">We offer a diverse range of services including DJ &amp; MC services, sound system setup,
+            bespoke dance floors, lighting, and screen productions. Furthermore, we coordinate with your other vendors
+            to guarantee seamless transitions during the event.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">How is the music selection tailored to the couple's preferences?</p>
+          <p class="faq-a">We work closely with the couple to understand their musical tastes, preferences, and any
+            specific songs they want included or excluded from the playlist. Whether they prefer classic RnB hits,
+            contemporary Tamil songs, or a mix of genres, the playlist reflects their unique style and sets the right
+            mood for each part of the wedding.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">How do we handle announcements and host duties during the wedding?</p>
+          <p class="faq-a">As experienced wedding professionals, we are comfortable and skilled in serving as the MC for
+            the event. From introducing the family members of the bride &amp; groom and announcing special moments to
+            facilitating speeches and toasts, we ensure smooth transitions and keep the flow of the event running
+            seamlessly.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">Do we provide any visuals enhancements to your screen production?</p>
+          <p class="faq-a">Absolutely! We provide a range of options to elevate the atmosphere of your wedding
+            production. Whether you desire bespoke monograms for your wedding logo or fully rendered backgrounds &amp;
+            transitions for your wedding videos, our experienced media team, who have collaborated with the likes of
+            artists such as AR Rahman, Anirudh, DSP, and Yuvan.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">How can we opt for a unique setup style for our wedding instead of the usual setups?</p>
+          <p class="faq-a">To achieve a distinctive style for your wedding setup, we provide a personalised consultation
+            to discuss your ideas, preferences, and any specific themes you have in mind. Our experienced team will then
+            create a tailored design for you and will continue to refine the setup until you are completely satisfied.
+          </p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">How early do we arrive to set up for the wedding?</p>
+          <p class="faq-a">In general, we aim to arrive at least 1–2 hours prior to the wedding ceremony and 3–4 hours
+            before the start of the reception. This allows ample time for us to set up our equipment and perform visuals
+            &amp; audio checks, ensuring that everything is arranged and functioning flawlessly before the arrival of
+            guests.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">Do we handle all the necessary paperwork and liaise directly with the venue for your event?
+          </p>
+          <p class="faq-a">Yes, we manage all the essential paperwork and communicate directly with the venue on your
+            behalf. This involves submitting Health &amp; Safety documents and coordinating logistics. Our team takes
+            care of everything in advance to reduce stress and ensure your event runs smoothly.</p>
+        </div>
+
+        <div class="faq-it">
+          <p class="faq-q">How far in advance should the couple book our services for their wedding?</p>
+          <p class="faq-a">It's recommended to book our services as early as possible to ensure availability, especially
+            during peak wedding season. Ideally, aim to book at least 6 months in advance.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ EXPERIENCES ══════ -->
+  <section id="experiences" class="page-sec s11">
+    <div class="wm">EXPERIENCES</div>
+    <div class="inner">
+      <h2 class="sec-ttl"><strong>EXPERIENCES</strong></h2>
+      <div class="testi-list">
+
+        <div class="testi-c">
+          <div class="testi-txt">
+            <p class="testi-q">'Manny, thank you so much for doing such an incredible job at our wedding reception, all
+              of our guests were so happy we booked you and we will definitely be recommending you to all of our
+              friends'</p>
+            <p class="testi-n">Suya &amp; Rahulan</p>
+          </div>
+          <div class="testi-im">
+            <div class="ip fill">[Suya &amp; Rahulan couple photo]</div>
+          </div>
+        </div>
+
+        <div class="testi-c rev">
+          <div class="testi-txt">
+            <p class="testi-q">'Honestly, you did such a great job, and everyone said you were great. Thank you so much
+              for creating such an amazing experience, you definitely helped making it really memorable!'</p>
+            <p class="testi-n">Shayana &amp; Kaj</p>
+          </div>
+          <div class="testi-im">
+            <div class="ip fill">[Shayana &amp; Kaj couple photo]</div>
+          </div>
+        </div>
+
+        <div class="testi-c">
+          <div class="testi-txt">
+            <p class="testi-q">'Words can't express how thankful we are for how much of an amazing job you done for both
+              our reception and Hindu wedding, the hosting &amp; entertainment was so good throughout our reception'</p>
+            <p class="testi-n">Vithiya &amp; Sannu</p>
+          </div>
+          <div class="testi-im">
+            <div class="ip fill">[Vithiya &amp; Sannu couple photo]</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ CONTACT ══════ -->
+  <section id="contact" class="page-sec s-dark">
+    <div class="wm">MANNY</div>
+    <div class="inner">
+      <div class="contact-bar">
+        <div class="c-brand">
+          <div class="bn">manny<sub>music</sub></div>
+        </div>
+        <div class="c-img">
+          <div class="ip fill h160">[Manny DJ performing photo]</div>
+        </div>
+      </div>
+      <p class="c-tagline">Award Winning DJ &amp; Host</p>
+      <p class="c-sub">For Your Wedding</p>
+      <div class="c-card">
+        <div class="c-row"><span class="ico">📞</span><a href="tel:+447494085142">+44 7494 085142</a></div>
+        <div class="c-row"><span class="ico">✉️</span><a
+            href="/cdn-cgi/l/email-protection#d0b5bea1a5b9a2b9b5a390bdb1bebea9a8bda5a3b9b3feb3bfbd"><span
+              class="__cf_email__"
+              data-cfemail="9bfef5eaeef2e9f2fee8dbf6faf5f5e2e3f6eee8f2f8b5f8f4f6">[email&#160;protected]</span></a>
+        </div>
+        <div class="c-row"><span class="ico">🌐</span><a href="https://www.mannyxmusic.com" target="_blank"
+            rel="noopener">www.mannyxmusic.com</a></div>
+        <div class="c-row"><span class="ico">📍</span><span>Suite 874, 124 City Road London, EC1V 2NX</span></div>
+        <div class="qr-row">
+          <div class="qr-b">
+            <div class="qr-ico">📷</div>
+            <div class="qr-sq">[Instagram QR Code]</div>
+          </div>
+          <div class="qr-b">
+            <div class="qr-ico">🎵</div>
+            <div class="qr-sq">[TikTok QR Code]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="site-footer">
+    <p>&copy; 2024 Manny Music. All rights reserved. &nbsp;|&nbsp; Suite 874, 124 City Road, London, EC1V 2NX</p>
+  </footer>
+
+  <!-- ══════ SCROLL TO TOP ══════ -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+  </script>
+
+</body>
+
+</html>
